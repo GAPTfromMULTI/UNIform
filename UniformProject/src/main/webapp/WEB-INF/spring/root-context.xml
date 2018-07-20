@@ -18,7 +18,7 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
 		<property name="url"
-			value="jdbc:log4jdbc:mysql://172.30.1.40:3306/testdb?useSSL=false&amp;serverTimezone=UTC"></property>
+			value="jdbc:log4jdbc:mysql://127.0.0.1:3306/unidb?useSSL=false&amp;serverTimezone=UTC"></property>
 		<property name="username" value="yerin"></property>
 		<property name="password" value="yerin"></property>
 	</bean>
@@ -29,6 +29,7 @@
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
         <property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
+        <!-- <property name="mapperLocations" value="classpath:query/**"></property> -->
 	</bean>
 	
 	<!-- mybatis SqlSessionTemplate-->

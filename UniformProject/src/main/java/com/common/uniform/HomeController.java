@@ -29,6 +29,9 @@ public class HomeController {
     /**
      * Simply selects the home view to render by returning its name.
      */
+    
+    
+    //localhost:3306/을 입력하였을 때 home.jsp 호출
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(Locale locale, Model model) throws Exception{
  
@@ -39,6 +42,15 @@ public class HomeController {
         model.addAttribute("memberList", memberList);
  
         return "home";
+    }
+    
+    //login버튼 클릭하면 localhost:3306/login 으로 이동
+    @RequestMapping(value = "/login")
+    public String login(Locale locale, Model model) throws Exception{
+    	
+    	logger.info("login page");
+    	
+    	return "login";
     }
     
 }
