@@ -53,4 +53,13 @@ public class HomeController {
     	return "login";
     }
     
+    //join버튼 클릭하면 localhost:3306/join 으로 이동(회원가입)
+    @RequestMapping(value = "/join")
+    public String join(Locale locale, Model model) throws Exception{
+    	
+    	logger.info("join page");
+    	
+    	return "joinMember";
+    }
+    
 }
