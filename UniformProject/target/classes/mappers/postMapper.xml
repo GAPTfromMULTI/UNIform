@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="query">
+
+	<resultMap type="com.common.dao.FormInfo"
+		id="LoginInfoResult">
+		<result column="ANSWER_ID" property="ans_id" />
+		<result column="POST_ID" property="post_id" />
+		<result column="NAME" property="name" />
+		<result column="MAIL" property="mail" />
+		<result column="TEL" property="tel" />
+		<result column="CLASS_TIME" property="class_time" />
+		<result column="MEMBER" property="member" />
+		<result column="MEMO" property="memo" />
+	</resultMap>
+	
+	<!-- 폼 신청서 insert 쿼리 -->
+	<insert id="insertForm"
+		parameterType="com.common.dao.FormInfo">
+		insert into tb_class
+		(ANSWER_ID, POST_ID, NAME, MAIL, TEL, CLASS_TIME, MEMBER, MEMO) values ("1", "1", #{name}, #{mail},#{tel},#{class_time},#{member}, #{memo})
+	</insert>
+	
+</mapper>

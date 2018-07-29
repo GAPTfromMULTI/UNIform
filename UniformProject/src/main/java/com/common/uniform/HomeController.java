@@ -62,4 +62,13 @@ public class HomeController {
     	return "joinMember";
     }
     
+  //login버튼 클릭하면 localhost:3306/form 으로 이동 (폼 신청 페이지)
+    @RequestMapping(value = "/form")
+    public String form(Locale locale, Model model) throws Exception{
+    	
+    	logger.info("form page");
+    	
+    	return "insertForm";
+    }
+    
 }

@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Clean Blog - Start Bootstrap Theme</title>
+    <title>UniForm - Home</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css">
@@ -42,7 +44,7 @@
               <a class="nav-link" href="/join">Join</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="post.html">Sample Post</a>
+              <a class="nav-link" href="/form">Form</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/login">Login</a>
@@ -68,7 +70,62 @@
     </header>
 
     <!-- Main Content -->
-    <div class="container">
+    <!-- Page Features -->
+      <div class="row text-center">
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card">
+            <img class="card-img-top" src="http://placehold.it/500x325" alt="폼 사진...">
+            <div class="card-body">
+              <h4 class="card-title">폼 제목1</h4>
+              <p class="card-text">내용</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Find Out More!</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card">
+            <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+            <div class="card-body">
+              <h4 class="card-title">폼 제목2</h4>
+              <p class="card-text">내용</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Find Out More!</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card">
+            <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+            <div class="card-body">
+              <h4 class="card-title">폼 제목3</h4>
+              <p class="card-text">긴 내용 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Find Out More!</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card">
+            <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+            <div class="card-body">
+              <h4 class="card-title">폼 제목4</h4>
+              <p class="card-text">더 긴 내용 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Find Out More!</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    <!-- <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-preview">
@@ -122,7 +179,7 @@
             <p class="post-meta">Posted by
               <a href="#">Start Bootstrap</a>
               on July 8, 2018</p>
-          </div>
+          </div> -->
           <hr>
           <!-- Pager -->
           <div class="clearfix">
