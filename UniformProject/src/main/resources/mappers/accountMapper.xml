@@ -7,28 +7,30 @@
 		<result column="ID" property="id" />
 		<result column="PASSWORD" property="password" />
 		<result column="NAME" property="name" />
+		<result column="PHONE" property="phone" />
+		<result column="TYPE" property="type" />
 	</resultMap>
 
 	<!-- 로그인 체크 쿼리 -->
 	<select id="loginCheck" resultType="integer"
 		parameterType="com.common.dao.LoginInfo">
-		select count(*) from test
+		select count(*) from tb_account
 		<where>
-			id = #{id}
+			ID = #{id}
 			AND
-			pw = #{password}
+			PASSWORD = #{password}
 		</where>
 	</select>
 
 	<!-- 회원가입 쿼리 -->
 	<insert id="insertMember"
 		parameterType="com.common.dao.LoginInfo">
-		insert into test
-		(id, pw, name) values (#{id},#{password},#{name})
+		insert into tb_account
+		(ID, PASSWORD, NAME, TYPE) values (#{id},#{password},#{name},#{type})
 	</insert>
 
 	<!-- Select -->
 	<select id="totalAccount" resultType="integer">
-		SELECT COUNT(*) FROM test
+		SELECT COUNT(*) FROM tb_account
 	</select>
 </mapper>

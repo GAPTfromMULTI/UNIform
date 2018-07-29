@@ -4,7 +4,7 @@ public class LoginInfo {
     private String id;
     private String password;
     private String name;
-    private String phone;
+    private int phone;
     private String type;
      
     public String getId() {
@@ -25,10 +25,10 @@ public class LoginInfo {
     public void setName(String name) {
         this.name = name;
     }
-    public String getPhone() {
+    public int getPhone() {
         return phone;
     }
-    public void setPhone(String phone) {
+    public void setPhone(int phone) {
         this.phone = phone;
     }
     public String getType() {

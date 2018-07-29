@@ -59,7 +59,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="exampleInputEmail1">Phone</label> <input type="text"
+						<label for="exampleInputEmail1">Phone</label> <input type="int"
 							class="form-control input-lg" name="phone" placeholder="phone">
 					</div>
 					<div class="form-group">

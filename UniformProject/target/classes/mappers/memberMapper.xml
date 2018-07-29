@@ -6,7 +6,7 @@
 <mapper namespace="com.example.mapper.memberMapper">
  
     <select id="selectMember" resultType="memberVO">
-        SELECT ID, PW ,NAME FROM TEST
+        SELECT ID, PASSWORD ,NAME FROM tb_account
     </select>
 
     
