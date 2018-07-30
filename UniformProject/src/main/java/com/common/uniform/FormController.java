@@ -29,13 +29,14 @@ public class FormController {
 	@Autowired
 	SubmitFormDAO submitFormDAO;
 	//
-    @RequestMapping(value = "/form/insertForm")
+	
+    @RequestMapping(value = "/form/confirmForm")
     public String insertMember(Locale locale, Model model, FormInfo formInfo, HttpSession session, HttpServletResponse response) throws Exception{
 
-    	submitFormDAO.insertForm(formInfo);
+    	submitFormDAO.confirmForm(formInfo);
     	//logger.info("insertMember page");
     	
-    	return "insertForm";
+    	return "confirmForm";
     }
 
 }

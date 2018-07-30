@@ -1,11 +1,6 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<%@ page import="com.common.dao.FormInfo"%>
-<%-- DAO import --%>
-<%@ page import="com.common.dao.SubmitFormDAO"%>
-<%@ page import="com.common.dao.SubmitFormDAOImpl"%>
 <html lang="en">
 
 <head>
@@ -40,16 +35,6 @@
 </head>
 
 <body>
-
-	<jsp:useBean id="formInfo" class="com.common.dao.FormInfo" />
-	<jsp:setProperty property="*" name="formInfo" />
-	<script type="text/javascript">
-		SubmitFormDAO dao = SubmitFormDAOImpl.getInstance();
-
-		// 회원정보를 담고있는 memberBean을 dao의 insertMember() 메서드로 넘긴다.
-		// insertMember()는 회원 정보를 JSP_MEMBER 테이블에 저장한다.
-		dao.insertForm(formInfo);
-	</script>
 
     <div id="wrapper">
 
@@ -297,7 +282,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form role="form" id="submitForm" method="post">
+                                    <form role="form" id="submitForm" action="<%=request.getContextPath()%>/form/confirmForm"
+					name="formInfo">
                                         <!-- <div class="form-group">
                                             <label>신청자 이름</label>
                                             <input class="form-control">
@@ -305,15 +291,15 @@
                                         </div> -->
                                         <div class="form-group">
                                             <label>신청자 이름</label>
-                                            <input class="form-control" placeholder="이름을 적어주세요" id="fname" name="fname">
+                                            <input class="form-control" placeholder="이름을 적어주세요" id="fname" name="name">
                                         </div>
                                         <div class="form-group">
                                             <label>메일 주소</label>
-                                            <input class="form-control" placeholder="메일 주소를 적어주세요" id="fmail" name="fmail">
+                                            <input class="form-control" placeholder="메일 주소를 적어주세요" id="fmail" name="mail">
                                         </div>
                                         <div class="form-group">
                                             <label>핸드폰 번호</label>
-                                            <input class="form-control" placeholder="핸드폰 번호를 적어주세요" id="fphone" name="fphone">
+                                            <input class="form-control" placeholder="핸드폰 번호를 적어주세요" id="fphone" name="tel">
                                         </div>
                                         <div class="form-group">
                                             <label>Static Control</label>
@@ -385,7 +371,7 @@
                                         </div> -->
                                         <div class="form-group">
                                             <label>클래스 시간</label>
-                                            <select class="form-control" name="ftime">
+                                            <select class="form-control" name="class_time">
                                                 <option value=10>10:00</option>
                                                 <option value=15>15:00</option>
                                                 <option value=17>17:00</option>
@@ -394,7 +380,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>참여 인원</label>
-                                            <select multiple class="form-control" name="fpeople">
+                                            <select multiple class="form-control" name="member">
                                                 <option value=1>1</option>
                                                 <option value=2>2</option>
                                                 <option value=3>3</option>
@@ -404,10 +390,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label>기타 요청사항</label>
-                                            <textarea class="form-control" rows="3" id="fetc" name="fetc"></textarea>
+                                            <textarea class="form-control" rows="3" id="fetc" name="memo"></textarea>
                                         </div>
-                                        <button type="submit" id="submitBtn" class="btn btn-default">신청하기</button>
+                                        <button type="submit" id="submitBtn" class="btn btn-default" onClick="insertFormClass()">신청하기</button>
                                         <button type="reset" class="btn btn-default">다시 작성하기</button>
+                                        <button id="cancleBtn" class="btn btn-default" onClick="goMain()">취소하기</button>
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
@@ -505,6 +492,18 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="<c:url value="/resources/dist/js/sb-admin-2.js" />"></script>
+    
+    <script type="text/javascript">
+		// 
+		function insertFormClass() {
+			location.href = "/form/confirmForm";
+		}
+
+		// 취소 버튼 클릭시 메인 화면으로 이동
+		function goMain() {
+			location.href = "/";
+		}
+	</script>
 
 </body>
 

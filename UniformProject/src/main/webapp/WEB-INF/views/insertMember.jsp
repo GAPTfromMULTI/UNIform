@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="com.common.dao.LoginInfo"%>
 <%-- DAO import --%>
@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>È¸¿ø°¡ÀÔ Ã³¸®</title>
+<title>íšŒì›ê°€ì… ì²˜ë¦¬</title>
 </head>
 <body>
 	<jsp:useBean id="loginInfo" class="com.common.dao.LoginInfo" />
@@ -17,8 +17,8 @@
 	<script type="text/javascript">
 		JoinMemberDAO dao = JoinMemberDAOImpl.getInstance();
 
-		// È¸¿øÁ¤º¸¸¦ ´ã°íÀÖ´Â memberBeanÀ» daoÀÇ insertMember() ¸Ş¼­µå·Î ³Ñ±ä´Ù.
-		// insertMember()´Â È¸¿ø Á¤º¸¸¦ JSP_MEMBER Å×ÀÌºí¿¡ ÀúÀåÇÑ´Ù.
+		// íšŒì›ì •ë³´ë¥¼ ë‹´ê³ ìˆëŠ” memberBeanì„ daoì˜ insertMember() ë©”ì„œë“œë¡œ ë„˜ê¸´ë‹¤.
+		// insertMember()ëŠ” íšŒì› ì •ë³´ë¥¼ JSP_MEMBER í…Œì´ë¸”ì— ì €ì¥í•œë‹¤.
 		dao.insertMember(loginInfo);
 	</script>
 		
@@ -31,43 +31,43 @@
 	<script>
 	JoinMemberDAO dao = JoinMemberDAOImpl.getInstance();
 
-		// È¸¿øÁ¤º¸¸¦ ´ã°íÀÖ´Â memberBeanÀ» daoÀÇ insertMember() ¸Ş¼­µå·Î ³Ñ±ä´Ù.
-		// insertMember()´Â È¸¿ø Á¤º¸¸¦ JSP_MEMBER Å×ÀÌºí¿¡ ÀúÀåÇÑ´Ù.
+		// íšŒì›ì •ë³´ë¥¼ ë‹´ê³ ìˆëŠ” memberBeanì„ daoì˜ insertMember() ë©”ì„œë“œë¡œ ë„˜ê¸´ë‹¤.
+		// insertMember()ëŠ” íšŒì› ì •ë³´ë¥¼ JSP_MEMBER í…Œì´ë¸”ì— ì €ì¥í•œë‹¤.
 		dao.insertMember(loginInfo);
 		</script>
 	--%>
 
 	<div id="wrap">
 		<br>
-		<br> <b><font size="5" color="gray">È¸¿ø°¡ÀÔ Á¤º¸¸¦ È®ÀÎÇÏ¼¼¿ä.</font></b> <br>
-		<br> <font color="blue"><%=loginInfo.getName()%></font>´Ô °¡ÀÔÀ»
-		ÃàÇÏµå¸³´Ï´Ù. <br>
+		<br> <b><font size="5" color="gray">íšŒì›ê°€ì… ì •ë³´ë¥¼ í™•ì¸í•˜ì„¸ìš”.</font></b> <br>
+		<br> <font color="blue"><%=loginInfo.getName()%></font>ë‹˜ ê°€ì…ì„
+		ì¶•í•˜ë“œë¦½ë‹ˆë‹¤. <br>
 		<br>
 
-		<%-- login¿¡¼­ ÀÔ·ÂµÈ °ªÀ» ÃßÃâÇÑ´Ù. --%>
+		<%-- loginì—ì„œ ì…ë ¥ëœ ê°’ì„ ì¶”ì¶œí•œë‹¤. --%>
 		<table>
 			<tr>
-				<td id="title">¾ÆÀÌµğ</td>
+				<td id="title">ì•„ì´ë””</td>
 				<td><%=loginInfo.getId()%></td>
 			</tr>
 
 			<tr>
-				<td id="title">ºñ¹Ğ¹øÈ£</td>
+				<td id="title">ë¹„ë°€ë²ˆí˜¸</td>
 				<td><%=loginInfo.getPassword()%></td>
 			</tr>
 
 			<tr>
-				<td id="title">ÀÌ¸§</td>
+				<td id="title">ì´ë¦„</td>
 				<td><%=loginInfo.getName()%></td>
 			</tr>
 
 			<tr>
-				<td id="title">ÈŞ´ëÀüÈ­</td>
+				<td id="title">íœ´ëŒ€ì „í™”</td>
 				<td><%=loginInfo.getPhone()%></td>
 			</tr>
 		</table>
 
-		<br> <input type="button" value="È®ÀÎ" onclick="goLogin()">
+		<br> <input type="button" value="í™•ì¸" onclick="goLogin()">
 	</div>
 
 </body>

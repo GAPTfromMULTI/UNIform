@@ -6,10 +6,11 @@ public class FormInfo {
     private String post_id;
     private String name;
     private String mail;
-    private int tel;
+    private String tel;
     private String class_time;
     private int member;
     private String memo;
+    
     
 	public String getAns_id() {
 		return ans_id;
@@ -35,10 +36,10 @@ public class FormInfo {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-	public int getTel() {
+	public String getTel() {
 		return tel;
 	}
-	public void setTel(int tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 	public String getClass_time() {
@@ -59,6 +60,8 @@ public class FormInfo {
 	public void setMemo(String memo) {
 		this.memo = memo;
 	}
+    
+    
     
     
 
