@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.common.dao.LoginDAO;
 import com.common.dao.LoginInfo;
@@ -55,6 +56,14 @@ public class LoginController {
             }   
         }
     }
+  //로그아웃 컨트롤러
+    @RequestMapping(value="/logout")
+    public ModelAndView logOut(ModelAndView mv, HttpSession session){
+      String page = "redirect:/";
+      session.removeAttribute("id");
+      mv.setViewName(page);;
+      return mv;
+    } 
     
     @RequestMapping(value="/test.do")
     

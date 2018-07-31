@@ -1,131 +1,155 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
 
-    <title>UniForm - Home</title>
+<title>UniForm - Home</title>
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css">
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css">
 
-    <!-- Custom fonts for this template -->
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/vendor/font-awesome/css/font-awesome.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<!-- Custom fonts for this template -->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/vendor/font-awesome/css/font-awesome.min.css">
+<link
+	href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic'
+	rel='stylesheet' type='text/css'>
+<link
+	href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+	rel='stylesheet' type='text/css'>
 
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/clean-blog.min.css">
+<!-- Custom styles for this template -->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/css/clean-blog.min.css">
 
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">Start Bootstrap</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/join">Join</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/form">Form</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/login">Login</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top"
+		id="mainNav">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">Start Bootstrap</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button"
+				data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false"
+				aria-label="Toggle navigation">
+				Menu <i class="fa fa-bars"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="/join">Join</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="/form">Form</a>
+					</li>
+					<c:choose>
+						<c:when test="${sessionScope.id ne null}">
+							<div class="navbar-header pull-right">
+								<span class="navbar-brand"> ${sessionScope.id}님 반갑습니다</span>
+								<li class="nav-item"><a class="nav-link" href="/logout">logout</a>
+								</li>
+							</div>
+						</c:when>
+						<c:otherwise>
+							<li class="nav-item"><a class="nav-link" href="/login">login</a>
+							</li>
 
-    <!-- Page Header -->
-    <header class="masthead" style="background-image: url('${pageContext.request.contextPath}/resources/img/home-bg.jpg')">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="site-heading">
-              <h1>Clean Blog</h1>
-              <span class="subheading">A Blog Theme by Start Bootstrap</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
+						</c:otherwise>
+					</c:choose>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-    <!-- Main Content -->
-    <!-- Page Features -->
-      <div class="row text-center">
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card">
-            <img class="card-img-top" src="http://placehold.it/500x325" alt="폼 사진...">
-            <div class="card-body">
-              <h4 class="card-title">폼 제목1</h4>
-              <p class="card-text">내용</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Find Out More!</a>
-            </div>
-          </div>
-        </div>
+	<!-- Page Header -->
+	<header class="masthead"
+		style="background-image: url('${pageContext.request.contextPath}/resources/img/home-bg.jpg')">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-10 mx-auto">
+					<div class="site-heading">
+						<h1>Clean Blog</h1>
+						<span class="subheading">A Blog Theme by Start Bootstrap</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
 
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card">
-            <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-            <div class="card-body">
-              <h4 class="card-title">폼 제목2</h4>
-              <p class="card-text">내용</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Find Out More!</a>
-            </div>
-          </div>
-        </div>
+	<!-- Main Content -->
+	<!-- Page Features -->
+	<div class="row text-center">
+		<div class="col-lg-3 col-md-6 mb-4">
+			<div class="card">
+				<img class="card-img-top" src="http://placehold.it/500x325"
+					alt="폼 사진...">
+				<div class="card-body">
+					<h4 class="card-title">폼 제목1</h4>
+					<p class="card-text">내용</p>
+				</div>
+				<div class="card-footer">
+					<a href="#" class="btn btn-primary">Find Out More!</a>
+				</div>
+			</div>
+		</div>
 
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card">
-            <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-            <div class="card-body">
-              <h4 class="card-title">폼 제목3</h4>
-              <p class="card-text">긴 내용 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Find Out More!</a>
-            </div>
-          </div>
-        </div>
+		<div class="col-lg-3 col-md-6 mb-4">
+			<div class="card">
+				<img class="card-img-top" src="http://placehold.it/500x325" alt="">
+				<div class="card-body">
+					<h4 class="card-title">폼 제목2</h4>
+					<p class="card-text">내용</p>
+				</div>
+				<div class="card-footer">
+					<a href="#" class="btn btn-primary">Find Out More!</a>
+				</div>
+			</div>
+		</div>
 
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card">
-            <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-            <div class="card-body">
-              <h4 class="card-title">폼 제목4</h4>
-              <p class="card-text">더 긴 내용 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Find Out More!</a>
-            </div>
-          </div>
-        </div>
+		<div class="col-lg-3 col-md-6 mb-4">
+			<div class="card">
+				<img class="card-img-top" src="http://placehold.it/500x325" alt="">
+				<div class="card-body">
+					<h4 class="card-title">폼 제목3</h4>
+					<p class="card-text">긴 내용 - Lorem ipsum dolor sit amet,
+						consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+				</div>
+				<div class="card-footer">
+					<a href="#" class="btn btn-primary">Find Out More!</a>
+				</div>
+			</div>
+		</div>
 
-      </div>
-    <!-- <div class="container">
+		<div class="col-lg-3 col-md-6 mb-4">
+			<div class="card">
+				<img class="card-img-top" src="http://placehold.it/500x325" alt="">
+				<div class="card-body">
+					<h4 class="card-title">폼 제목4</h4>
+					<p class="card-text">더 긴 내용 - Lorem ipsum dolor sit amet,
+						consectetur adipisicing elit. Explicabo magni sapiente, tempore
+						debitis beatae culpa natus architecto.</p>
+				</div>
+				<div class="card-footer">
+					<a href="#" class="btn btn-primary">Find Out More!</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-preview">
@@ -180,62 +204,58 @@
               <a href="#">Start Bootstrap</a>
               on July 8, 2018</p>
           </div> -->
-          <hr>
-          <!-- Pager -->
-          <div class="clearfix">
-            <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
-          </div>
-        </div>
-      </div>
-    </div>
+	<hr>
+	<!-- Pager -->
+	<div class="clearfix">
+		<a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+	</div>
+	</div>
+	</div>
+	</div>
 
-    <hr>
+	<hr>
 
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <ul class="list-inline text-center">
-              <li class="list-inline-item">
-                <a href="#">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-            </ul>
-            <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
-          </div>
-        </div>
-      </div>
-    </footer>
+	<!-- Footer -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-10 mx-auto">
+					<ul class="list-inline text-center">
+						<li class="list-inline-item"><a href="#"> <span
+								class="fa-stack fa-lg"> <i
+									class="fa fa-circle fa-stack-2x"></i> <i
+									class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+							</span>
+						</a></li>
+						<li class="list-inline-item"><a href="#"> <span
+								class="fa-stack fa-lg"> <i
+									class="fa fa-circle fa-stack-2x"></i> <i
+									class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+							</span>
+						</a></li>
+						<li class="list-inline-item"><a href="#"> <span
+								class="fa-stack fa-lg"> <i
+									class="fa fa-circle fa-stack-2x"></i> <i
+									class="fa fa-github fa-stack-1x fa-inverse"></i>
+							</span>
+						</a></li>
+					</ul>
+					<p class="copyright text-muted">Copyright &copy; Your Website
+						2018</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="<c:url value="/resources/vendor/jquery/jquery.min.js" />"></script>
-    <script src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js" />"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script src="<c:url value="/resources/vendor/jquery/jquery.min.js" />"></script>
+	<script
+		src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js" />"></script>
 
-    <!-- Custom scripts for this template -->
-    <script src="<c:url value="/resources/js/clean-blog.min.js" />"></script>
+	<!-- Custom scripts for this template -->
+	<script src="<c:url value="/resources/js/clean-blog.min.js" />"></script>
 
-  </body>
+</body>
 
 </html>
 

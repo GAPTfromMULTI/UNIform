@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -32,11 +32,12 @@
 			<div class="card-body">
 				<form class="form col-md-12 center-block"
 					action="<%=request.getContextPath()%>/join/insertMember"
-					name="userInfo">
+					name="userInfo"
+					onsubmit="return checkValue()">
 					<div class="form-group">
 						<div class="form-row">
 							<div class="col-md-6">
-								<label for="exampleInputName">Name</label> <input type="text"
+								<label for="exampleInputName">이름</label> <input type="text"
 									class="form-control input-lg" name="name" placeholder="name">
 							</div>
 						</div>
@@ -48,34 +49,34 @@
 					<div class="form-group">
 						<div class="form-row">
 							<div class="col-md-6">
-								<label for="exampleInputPassword1">Password</label> <input
+								<label for="exampleInputPassword1">비밀번호</label> <input
 									type="password" class="form-control input-lg" name="password"
 									placeholder="password">
 							</div>
 							<div class="col-md-6">
-								<label for="exampleConfirmPassword">Confirm password</label> <input
+								<label for="exampleConfirmPassword">비밀번호 확인</label> <input
 									type="password" class="form-control input-lg"
 									name="passwordCheck" placeholder="password">
 							</div>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="exampleInputEmail1">Phone</label> <input type="int"
+						<label for="exampleInputEmail1">전화번호</label> <input type="int"
 							class="form-control input-lg" name="phone" placeholder="phone">
 					</div>
 					<div class="form-group">
-						<label for="exampleInputEmail1">Type</label> <input type="text"
+						<label for="exampleInputEmail1">학생/일반인</label> <input type="text"
 							class="form-control input-lg" name="type" placeholder="type">
 					</div>
 					<div class="form-group">
-						<button type="submit" class="btn btn-primary btn-lg btn-block" onclick="checkValue()">Register</button>
+						<button type="submit" class="btn btn-primary btn-lg btn-block" onclick="checkValue()">가입하기</button>
 					</div>
 					<!--<input type="submit" value="Register" onclick="checkValue()">
 					<!-- <a class="btn btn-primary btn-block" href="/join/insertMember">Register</a>
 				 -->
 				</form>
 				<div class="text-center">
-					<input type="button" value="Login Page" onclick="goLoginForm()">
+					<input type="button" value="로그인 페이지로" onclick="goLoginForm()">
 					<!--<a class="d-block small mt-3" href="/">Login Page</a>
 					 <a class="d-block small" href="forgot-password.html">Forgot Password?</a> -->
 				</div>
@@ -95,23 +96,23 @@
 		// 필수 입력정보인 아이디, 비밀번호, 이름이 입력되었는지 확인하는 함수
 		function checkValue() {
 			if (!document.userInfo.id.value) {
-				alert("Input your ID.");
+				alert("아이디를 입력하세요.");
 				return false;
 			}
 
 			if (!document.userInfo.password.value) {
-				alert("Input your password.");
+				alert("비밀번호를 입력하세요.");
 				return false;
 			}
 
 			if (!document.userInfo.name.value) {
-				alert("Input your name.");
+				alert("이름을 입력하세요.");
 				return false;
 			}
 
 			// 비밀번호와 비밀번호 확인에 입력된 값이 동일한지 확인
 			if (document.userInfo.password.value != document.userInfo.passwordCheck.value) {
-				alert("Check your password.");
+				alert("비밀번호를 확인하세요.");
 				return false;
 			}
 
