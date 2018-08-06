@@ -38,9 +38,9 @@
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top"
-		id="mainNav">
+		id="mainNav" style="background-color: #6799FF;">
 		<div class="container">
-			<a class="navbar-brand" href="index.html">Start Bootstrap</a>
+			<a class="navbar-brand" href="/">Start Bootstrap</a>
 			<button class="navbar-toggler navbar-toggler-right" type="button"
 				data-toggle="collapse" data-target="#navbarResponsive"
 				aria-controls="navbarResponsive" aria-expanded="false"
@@ -72,7 +72,7 @@
 			</div>
 		</div>
 	</nav>
-
+	
 	<!-- Page Header -->
 	<header class="masthead"
 		style="background-image: url('${pageContext.request.contextPath}/resources/img/home-bg.jpg')">
@@ -207,7 +207,7 @@
 	<hr>
 	<!-- Pager -->
 	<div class="clearfix">
-		<a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+		<a class="btn btn-primary float-right" href="/board">Older Posts &rarr;</a>
 	</div>
 	</div>
 	</div>

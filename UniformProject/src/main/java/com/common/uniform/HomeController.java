@@ -2,19 +2,23 @@ package com.common.uniform;
 
 import java.util.List;
 import java.util.Locale;
- 
+import java.util.Map;
+
+import javax.annotation.Resource;
 import javax.inject.Inject;
- 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
- 
+import org.springframework.web.servlet.ModelAndView;
+
 import com.common.dto.MemberVO;
 import com.common.service.MemberService;
- 
+
+import com.common.service.BoardService;
 /**
  * Handles requests for the application home page.
  */
@@ -24,7 +28,7 @@ public class HomeController {
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
     
     @Inject
-    private MemberService service;
+    private BoardService service;
     
     /**
      * Simply selects the home view to render by returning its name.
@@ -37,9 +41,9 @@ public class HomeController {
  
         logger.info("home");
         
-        List<MemberVO> memberList = service.selectMember();
+        //List<MemberVO> memberList = service.selectMember();
         
-        model.addAttribute("memberList", memberList);
+        //model.addAttribute("memberList", memberList);
  
         return "home";
     }
@@ -70,5 +74,22 @@ public class HomeController {
     	
     	return "insertForm";
     }
+    
+  //Older posts버튼 클릭하면 localhost:3306/board 으로 이동 (폼 게시판 페이지)
+    @RequestMapping(value = "/board")
+    public ModelAndView board(Map<String,Object> commandMap) throws Exception{
+    	
+    	logger.info("board page");
+    	
+    	ModelAndView mv = new ModelAndView("/formBoard");
+    	
+    	List<Map<String,Object>> formList = service.selectFormList(commandMap);
+    	mv.addObject("formList", formList);
+    	
+    	return mv;
+    }
+    
+    
+    
     
 }

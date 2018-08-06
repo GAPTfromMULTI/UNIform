@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="query">
+<mapper namespace="postinfo_query">
 
 	<resultMap type="com.common.dao.FormInfo"
 		id="FormInfoResult">
@@ -20,5 +20,21 @@
 		insert into tb_class
 		(ANSWER_ID, POST_ID, NAME, MAIL, TEL, CLASS_TIME, MEMBER, MEMO) values ("3", "1", #{name}, #{mail},#{tel},#{class_time},#{member}, #{memo})
 	</insert>
+	
+	<!-- 작성된 폼 리스트 select 쿼리 (게시판) -->
+	<select id = "selectFormList" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+            SELECT
+                POST_ID,
+                TITLE,
+                WRITER,
+                DATE,
+                TIME,
+                VIEWS
+            FROM
+                tb_postinfo
+            ORDER BY DATE, TIME ASC
+        ]]>
+	</select>
 	
 </mapper>
