@@ -15,6 +15,8 @@
 <title>UniForm - Home</title>
 
 <!-- Bootstrap core CSS -->
+<!--<link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css">-->
+<link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css">
 
@@ -40,7 +42,7 @@
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top"
 		id="mainNav" style="background-color: #6799FF;">
 		<div class="container">
-			<a class="navbar-brand" href="/">Start Bootstrap</a>
+			<a class="navbar-brand" href="index.html">UNIform</a>
 			<button class="navbar-toggler navbar-toggler-right" type="button"
 				data-toggle="collapse" data-target="#navbarResponsive"
 				aria-controls="navbarResponsive" aria-expanded="false"
@@ -50,20 +52,21 @@
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="/join">Join</a>
+					<li class="nav-item"><a class="nav-link" href="#joinModal" data-toggle="modal">Join</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="/form">Form</a>
 					</li>
 					<c:choose>
 						<c:when test="${sessionScope.id ne null}">
-							<div class="navbar-header pull-right">
-								<span class="navbar-brand"> ${sessionScope.id}님 반갑습니다</span>
+							<!--<div class="navbar-header pull-right">-->
+								<!-- <span class="navbar-brand">  -->
+								<li class="nav-item"><a class="nav-link"> ${sessionScope.id}님 반갑습니다</li>
 								<li class="nav-item"><a class="nav-link" href="/logout">logout</a>
 								</li>
-							</div>
+							<!--</div>-->
 						</c:when>
 						<c:otherwise>
-							<li class="nav-item"><a class="nav-link" href="/login">login</a>
+							<li class="nav-item"><a class="nav-link" href="#loginModal" data-toggle="modal">login</a>
 							</li>
 
 						</c:otherwise>
@@ -72,7 +75,7 @@
 			</div>
 		</div>
 	</nav>
-	
+
 	<!-- Page Header -->
 	<header class="masthead"
 		style="background-image: url('${pageContext.request.contextPath}/resources/img/home-bg.jpg')">
@@ -205,6 +208,86 @@
               on July 8, 2018</p>
           </div> -->
 	<hr>
+	
+	<!--join modal-->
+	<div id="joinModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+	  <div class="modal-dialog">
+	  <div class="modal-content">
+	      <div class="modal-header">
+	      	<center><h1 class="text-center">회원가입</h1></center>
+	          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	          
+	      </div>
+	      <div class="modal-body">
+	          <form class="form col-md-12 center-block" action="<%=request.getContextPath()%>/join/insertMember"
+					name="userInfo"
+					onsubmit="return checkValue()">
+	            <div class="form-group">
+	              <input type="text" class="form-control input-lg" name="name" placeholder="이름">
+	            </div>
+	            <div class="form-group">
+	              <input type="text" class="form-control input-lg" name="id" placeholder="아이디">
+	            </div>
+	            <div class="form-group">
+	              <input type="password" class="form-control input-lg" name="password" placeholder="비밀번호">
+	            </div>
+	            <div class="form-group">
+	              <input type="password" class="form-control input-lg" name="passwordCheck" placeholder="비밀번호 확인">
+	            </div>
+	            <div class="form-group">
+	              <input type="text" class="form-control input-lg" name="phone" placeholder="전화번호">
+	            </div>
+	            <div class="form-group">
+	              <input type="text" class="form-control input-lg" name="type" placeholder="학생 or 일반인">
+	            </div>
+	            <div class="form-group">
+	              <button type="submit" class="btn btn-primary btn-lg btn-block"onclick="checkValue()">가입하기</button>
+	              <span><a href="#"><h6>아이디/비밀번호를 잊으셨나요?</h6></a></span>
+	            </div>
+	          </form>
+	      </div>
+	      <div class="modal-footer">
+	          <div class="col-md-12">
+	          <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+			  </div>	
+	      </div>
+	  </div>
+	  </div>
+	</div>
+	
+	
+	<!--login modal-->
+	<div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+	  <div class="modal-dialog">
+	  <div class="modal-content">
+	      <div class="modal-header">
+	      	<center><h1 class="text-center">Login</h1></center>
+	          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	      </div>
+	      <div class="modal-body">
+	          <form class="form col-md-12 center-block" action="<%=request.getContextPath()%>/login/loginCheck">
+	            <div class="form-group">
+	              <input type="text" class="form-control input-lg" name="id" placeholder="id">
+	            </div>
+	            <div class="form-group">
+	              <input type="password" class="form-control input-lg" name="password" placeholder="password">
+	            </div>
+	            <div class="form-group">
+	              <button type="submit" class="btn btn-primary btn-lg btn-block">Sign In</button>
+	              <span class="pull-right"><a href="#joinModal" data-toggle="modal">Register</a></span><span><a href="#">Need help?</a></span>
+	            </div>
+	          </form>
+	      </div>
+	      <div class="modal-footer">
+	          <div class="col-md-12">
+	          <button class="btn" data-dismiss="modal" aria-hidden="true" onClick="goMain()">Cancel</button>
+			  </div>	
+	      </div>
+	  </div>
+	  </div>
+	</div>
+	
+	
 	<!-- Pager -->
 	<div class="clearfix">
 		<a class="btn btn-primary float-right" href="/board">Older Posts &rarr;</a>
@@ -214,7 +297,7 @@
 	</div>
 
 	<hr>
-
+	
 	<!-- Footer -->
 	<footer>
 		<div class="container">
@@ -248,12 +331,61 @@
 	</footer>
 
 	<!-- Bootstrap core JavaScript -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="<c:url value="/js/bootstrap.min.js" />"></script>
+		<script src="<c:url value="/js/scripts.js" />"></script>
+	
 	<script src="<c:url value="/resources/vendor/jquery/jquery.min.js" />"></script>
 	<script
 		src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js" />"></script>
 
 	<!-- Custom scripts for this template -->
 	<script src="<c:url value="/resources/js/clean-blog.min.js" />"></script>
+	
+	<script type="text/javascript">
+	$(document).on('hidden.bs.modal', function(event) {
+		if ($('.modal:visible').length) {
+			$('body').addClass('modal-open');
+		}
+	});
+	
+	// 필수 입력정보인 아이디, 비밀번호, 이름이 입력되었는지 확인하는 함수
+	function checkValue() {
+		if (!document.userInfo.id.value) {
+			alert("아이디를 입력하세요.");
+			return false;
+		}
+
+		if (!document.userInfo.password.value) {
+			alert("비밀번호를 입력하세요.");
+			return false;
+		}
+
+		if (!document.userInfo.name.value) {
+			alert("이름을 입력하세요.");
+			return false;
+		}
+
+		// 비밀번호와 비밀번호 확인에 입력된 값이 동일한지 확인
+		if (document.userInfo.password.value != document.userInfo.passwordCheck.value) {
+			alert("비밀번호를 확인하세요.");
+			return false;
+		}
+
+		else
+			location.href = "/join/insertMember";
+	}
+
+	// 취소 버튼 클릭시 로그인 화면으로 이동
+	function goLoginForm() {
+		location.href = "/login";
+	}
+	
+		// 취소 버튼 클릭시 메인 화면으로 이동
+		function goMain() {
+			location.href = "/";
+		}
+	</script>
 
 </body>
 
